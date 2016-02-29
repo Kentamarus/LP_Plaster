@@ -1,0 +1,314 @@
+@import "fonts.css";
+
+html,
+body{
+    height: 100%;
+    display: block;    
+}
+body {
+    background:#f5f5f5;
+}
+
+a:link,
+a:visited{
+    color: #546A67;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*global*/
+.clear-padding{
+    padding: 0!important;
+}
+
+.clear-margin{
+    margin: 0!important;
+}
+.ul-left li{ float: left; padding: 0; margin: 0;}
+.a-none{ text-decoration: none!important;}
+.uppercase{ text-transform: uppercase;}
+.underline{ text-decoration: underline;}
+
+a.underline{ text-decoration: underline;}
+a.underline:hover{ text-decoration: none;}
+.pad-bot30{ padding-bottom: 30px!important;}
+.margin-right15{ margin-right: -15px;}
+.relative{ position: relative;}
+ul li{ list-style: none;}
+.absolute{ position: absolute;}
+.div-table{ display: table;}
+.ul-form{ padding: 0;}
+.div-table-cell{ display: table-cell; vertical-align: middle;}
+
+html{
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+html *{
+ max-height:1000000px;
+ outline: none!important;
+}
+.overfow-hidden{ overflow: hidden;}
+div{ margin: 0 auto;}
+.ul-form li{ padding-bottom: 10px;}
+/*global========*/
+
+body > .container-fluid.main{
+    min-height: 100%;    
+    padding-top: 52px;
+}
+
+.navbar-brand{  
+}
+
+
+/*nav*/
+nav{
+    background-color: #315176;
+}
+.navbar-nav{ text-align: center; float: none;}
+.navbar-nav>li{ display: inline-block; float: none; width: 16%;}
+.navbar-nav>li>a{
+    font-family:Exo-Regular;
+    padding: 0;
+    display: inline-block;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    line-height: 52px;    
+}
+.nav>li>a:focus,
+.nav>li>a:hover {
+    text-decoration: none;
+    background-color: transparent;
+}
+.navbar-collapse{ height: 52px;}
+/*nav===========*/
+
+
+.cd-top {
+    display: block;
+    margin: 0 auto;
+    height: 57px;
+    width:116px;   
+    background: url(../images/up-top.png) no-repeat;    
+    opacity: 1;    
+}
+.cd-top:hover{
+    background-position: left bottom;
+}
+
+.cd-top.cd-is-visible {
+  visibility: visible;
+  opacity: 1;
+}
+.cd-top.cd-fade-out {
+  opacity: .5;
+}
+
+
+header{
+    min-height: 712px;
+    background: url('../uploads/slide2.jpg') no-repeat center top;
+}
+header .title{ margin-bottom: 30px; }
+
+header .call-answer{ position: relative;}
+header .call-answer:after{
+    content: "";
+    position: absolute;
+    display: block;
+    right: -156px;
+    bottom: -55px;
+    width: 242px;
+    height: 228px;
+    z-index: 10;
+    background: url("../images/calculation.png") no-repeat;
+}
+
+.white-space{
+    height: 87px;
+    background: url('../images/back-top-y.png') repeat-x;
+}
+
+.navbar-brand{
+    background: url('../images/logotype.png') no-repeat;
+    height: 67px;
+    padding-left: 39px;
+    font-size: 16px;
+    color: #323232;
+    line-height: 17px;
+    font-family:Exo-Medium;    
+    margin:7px 0 0 15px;
+    display: table;
+    vertical-align: middle;
+}
+.navbar-brand i{
+    display: table-cell;
+    font-style: normal;
+    vertical-align: middle;
+    padding-top: 3px;
+}
+
+/*will-call*/
+.will-call{
+    float: right;
+    padding-left: 56px;
+    height: 87px;
+    background-image: url('../images/icons/phones.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+.will-call i {
+    display: block;
+    font-size: 26px;
+    color: #323232;
+    font-family:Exo-Medium;
+    font-style: normal;
+    height: 24px;
+    width: 232px;
+    margin-bottom: 8px;
+}
+.will-call a {
+    font-size: 16px;
+    color: #a45021;
+    font-family: Exo-Bold;
+}
+/*will-call=========*/
+
+.title{
+    font-size: 43px;
+    color: #a45021;
+    text-align: center;
+    font-family: Exo-Black;
+    text-transform: uppercase;
+}
+.title span{
+    display: block;
+    color: #424242;
+    font-size: 30px;
+    font-family:Exo-Medium;
+    margin-top: 5px;
+}
+.stay-blanket{
+    width: 395px;
+    height: 419px;
+    margin: 0;
+    padding: 80px 40px 0 40px;
+    background-image: url(../images/form.png);
+    background-repeat: no-repeat;
+}
+.stay-blanket .title{
+    font-size: 18px;
+    color: #323232;
+    margin: 0;
+    font-family:Exo-Medium;
+    text-transform: none;
+}
+.stay-blanket .title span{
+    font-size: 24px;
+    color: #446790;
+    font-family: Exo-Bold;
+    display: block;
+}
+.stay-blanket  .ul-form{ margin-top: 20px;}
+
+.text-empty{
+    border: none;
+    background: white;
+    line-height: 45px;
+    height: 45px;
+    padding-left: 16px;
+    font-size: 16px;
+    color: #a3a2a2;
+    width: 100%;
+    font-family:Exo-Regular;
+}
+.ul-form li{ padding-bottom: 13px;}
+
+.btn.btn-primary {
+    width: 260px;
+    padding: 0;
+    margin: 0 auto;
+    border: none;
+    line-height: 52px;
+    height: 52px;
+    font-size: 18px;
+    font-family:Exo-Medium;
+    border-radius: 0!important;
+    color: #2b2b2b!important;
+    background: #ffcc00!important;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    position: relative;
+    top: 0;
+    display: block;    
+    border: none;
+    box-shadow: 0 3px 0 #d38c02;
+    text-align: center;
+}
+.btn.btn-primary:focus{
+    background-color: transparent;
+}
+
+.text-empty::-webkit-input-placeholder {
+    color: #a3a2a2;
+}
+.text-empty.error::-webkit-input-placeholder {
+    color: #f24e22;
+}
+
+.btn.btn-primary:hover{ 
+    box-shadow: none;
+    box-shadow: 0 3px 0 #d38c02;
+}
+
+.btn.btn-primary:active, 
+.btn.btn-primary:focus {
+    border: none;
+    outline: 0;
+    cursor: pointer;
+}
+
+.btn.btn-primary:active {
+    top: 3px;
+    padding: 0;
+    box-shadow: 0 0 0 #809e1e;
+}
+
+.thanks .title {
+    font-size: 18px;
+    color: #a45021;
+    font-family: Exo-Medium;
+    text-transform: uppercase;
+}
+.thanks p.description{
+    font-size: 18px;
+    color: #323232;    
+    font-family: Exo-Medium;
+    text-align: center;
+}
+.modal .call-answer{
+    height: 150px;
+    width: 320px;
+}
+
+footer{
+    background: #315176;
+    height: 157px;
+}
+
+.title-small{
+    color: white;
+    font-size: 20px;
+    font-family: Exo-Black;
+    text-transform: uppercase;
+    display: block;
+}
+
+footer .will-call i{ color: white;}
+footer .will-call a{
+    color: #ffcc00;
+}

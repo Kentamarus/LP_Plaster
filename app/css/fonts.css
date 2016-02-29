@@ -1,0 +1,46 @@
+@font-face {
+    font-family:Exo-Regular;
+	src: url("../fonts/Exo2.0-Regular.eot");
+	src: url("../fonts/Exo2.0-Regular.svg") format('svg'),
+		url("../fonts/Exo2.0-Regular.ttf") format('truetype'),		
+		url("../fonts/Exo2.0-Regular.otf") format("opentype"),
+		url("../fonts/Exo2.0-Regular.woff") format("woff");
+   }
+
+@font-face {
+    font-family:Exo-Medium;
+	src: url("../fonts/Exo2.0-Medium.eot");
+	src: url("../fonts/Exo2.0-Medium.svg") format('svg'),
+		url("../fonts/Exo2.0-Medium.ttf") format('truetype'),		
+		url("../fonts/Exo2.0-Medium.otf") format("opentype"),
+		url("../fonts/Exo2.0-Medium.woff") format("woff");
+   }
+
+@font-face {
+    font-family: Exo-Bold;
+	src: url("../fonts/Exo2.0-Bold.eot");
+	src: url("../fonts/Exo2.0-Bold.svg") format('svg'),
+		url("../fonts/Exo2.0-Bold.ttf") format('truetype'),		
+		url("../fonts/Exo2.0-Bold.otf") format("opentype"),
+		url("../fonts/Exo2.0-Bold.woff") format("woff");
+   }
+
+
+@font-face {
+    font-family: Exo-Black;
+	src: url("../fonts/Exo2.0-Black.eot");
+	src: url("../fonts/Exo2.0-Black.svg") format('svg'),
+		url("../fonts/Exo2.0-Black.ttf") format('truetype'),		
+		url("../fonts/Exo2.0-Black.otf") format("opentype"),
+		url("../fonts/Exo2.0-Black.woff") format("woff");
+   }
+/*
+@font-face {
+    font-family: ;
+	src: url("../fonts/.eot");
+	src: url("../fonts/.svg") format('svg'),
+		url("../fonts/.ttf") format('truetype'),		
+		url("../fonts/.otf") format("opentype"),
+		url("../fonts/.woff") format("woff");
+   }
+*/
