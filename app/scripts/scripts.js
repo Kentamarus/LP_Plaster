@@ -21,6 +21,10 @@ var Site = new function () {
             return false;
         }); 
         
+        $('.block-map').click(function() {
+            $(this).find('iframe').css("pointer-events", "auto");
+        });
+        
         //smooth scroll to top
         $(".cd-top").on('click', function(event){
             event.preventDefault();
