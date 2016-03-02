@@ -42,6 +42,7 @@ ul li{ list-style: none;}
 
 .inline{ display: inline!important;}
 .auto-center{ margin: 0 auto!important;}
+.full{ width: 100%!important;}
 
 html{
   -ms-text-size-adjust: 100%;
@@ -111,7 +112,7 @@ nav{
 
 
 header{
-    min-height: 712px;
+    min-height: 711px;
     background: url('../uploads/slide2.jpg') no-repeat center top;
 }
 header .title{ margin-bottom: 30px; }
@@ -122,7 +123,7 @@ header .call-answer:after{
     position: absolute;
     display: block;
     right: -156px;
-    bottom: -55px;
+    bottom: -5px;
     width: 242px;
     height: 228px;
     z-index: 10;
@@ -184,6 +185,7 @@ header .call-answer:after{
     color: #a45021;
     text-align: center;
     font-family: Exo-Black;
+    height: auto;
     text-transform: uppercase;
 }
 .title span{
@@ -197,9 +199,10 @@ header .call-answer:after{
     width: 395px;
     height: 432px;
     margin: 0;
-    padding: 80px 40px 0 40px;
+    padding: 65px 40px 0 40px;
     background-image: url(../images/form.png);
     background-repeat: no-repeat;
+    background-size: 100%;
 }
 .stay-blanket .title{
     font-size: 18px;
@@ -207,6 +210,7 @@ header .call-answer:after{
     margin: 0;
     font-family:Exo-Medium;
     text-transform: none;
+    font-weight: bold;
 }
 .stay-blanket .title span{
     font-size: 24px;
@@ -335,13 +339,17 @@ footer .will-call a{
 .slide1 .title{
     font-size: 36px;
     color: #a45021;
-    display: table-cell;
+    display: block;
     text-align: left;
-    height: 257px;
+    min-height: 257px;
+    padding-top: 49px;
     padding-left: 113px;
-    line-height: 48px;
-    vertical-align: middle;
+    line-height: 34px;
     font-family: Exo-Black;
+}
+.slide1 .title br{
+    line-height: 43px;
+    display: inline-block;
 }
 .slide1 .title span{
     color: #424242;
@@ -363,7 +371,7 @@ footer .will-call a{
 .image-rotate img{
     display: block;
     position: relative;
-    width: 320px;
+    max-width: 321px;
     transform:rotate(-4deg);
 }
 
@@ -492,6 +500,7 @@ footer .will-call a{
     margin: 0 auto;
     max-width: 350px;
     width: 100%;
+    background: white;
     border: 6px solid #e6e6e6;
 }
 .will-order p{
@@ -523,7 +532,7 @@ footer .will-call a{
 .will-order .image:before{
     content: "";
     position: absolute;
-    left: 10px;
+    left: 0;
     top: 0;
     z-index: 0;
     transform:rotate(14deg);
@@ -544,7 +553,6 @@ footer .will-call a{
     background: url('../uploads/slide6.jpg') no-repeat center top;
     padding-top: 46px;
 }
-.call-person .btn.btn-primary{ width: 100%;}
 .call-person .base-window{ width: 395px; margin: 0 auto;}
 .call-person .stay-blanket{
     position: relative; 
@@ -567,7 +575,7 @@ footer .will-call a{
     position: absolute;
     content: "";
     right: -90px;
-    bottom: -19px;
+    bottom: -5px;
     z-index: 10;
     width: 135px;
     height: 138px;
@@ -680,10 +688,10 @@ footer .will-call a{
     content: "";
     position: absolute;
     display: block;
-    right: -105px;
-    bottom: 0;
-    width: 177px;
-    height: 123px;
+    right: -102px;
+    bottom: -19px;
+    width: 184px;
+    height: 132px;
     background: url("../images/phone.png") no-repeat;
 }
 /*call-us===========*/
@@ -757,3 +765,39 @@ footer .item.middle{
 .achieving .item .image4{
     background-image: url('../images/circle4.png');
 }
+
+/*.popup-form*/
+.popup-form{ 
+    width: 395px;
+    height: 432px;
+    margin: 0 auto;
+    padding: 65px 40px 0 40px;
+    background-image: url(../images/form.png);
+    background-repeat: no-repeat;
+    position: relative;
+}
+.popup-form .title{
+    font-size: 18px;
+    color: #323232;
+    margin: 0;
+    font-family:Exo-Medium;
+    text-transform: none;
+    font-weight: bold;
+}
+.popup-form .title span{
+    font-size: 24px;
+    color: #446790;
+    font-family: Exo-Bold;
+    display: block;
+}
+.popup-form  .ul-form{ margin-top: 20px;}
+.popup-form .block-base-windows{ height: 290px;}
+.popup-form form{ padding-bottom: 3px;}
+.popup-form .thanks{ padding-top: 90px;}
+/*.popup-form============*/
+
+button.mfp-close,
+.btn-close{position:absolute;right:-42px;top:0;width:32px;height:32px;background:url("../images/icons/close.png") no-repeat; font-size: 0;}
+
+button.mfp-close:hover,
+.btn-close:hover{background-position:left bottom;}
