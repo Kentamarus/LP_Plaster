@@ -1,3 +1,9 @@
+@import "normalize.css";
+@import "bootstrap.min.css";
+@import "magnific-popup.css";
+@import "fonts.css";
+@import "style.css";
+
 @media (max-width:1200px) {
     .steps .base .image.item4,
     .steps .base .image.item8 {
@@ -17,6 +23,7 @@
     .navbar-toggle{        
         border: 1px solid white;
         display: block;
+        float: right!important;
     }
     .navbar-toggle span{
         background: white;
@@ -28,7 +35,6 @@
         line-height: 38px;
     }
     
-    .list-get:before{ display: none;}    
     .list-get{ margin: 0;}
     
     .slide1 .title{
@@ -55,7 +61,7 @@
         background-size: 100%;
     }
     
-    .call-us .block-btn {
+    .call-us .block-btn {    
         margin-top: 35px;
     }
     .our-works .item{ width: 33%!important;}
@@ -66,6 +72,18 @@
     .item-null{ display: none;}
     .will-order p {
         min-height: 155px;
+    }
+    
+    .block-line:before {
+        left: 100px;
+        top: 79px;
+        width: 869px;
+        height: 242px;
+        background-position: right top;
+    }
+    .achieving .item div{ padding-top: 120px;}
+    .call-us .block-btn {
+        margin-top: 19px;
     }
 }
 
@@ -114,6 +132,19 @@
     .call-us .block-btn {
         margin-top: 0;
     }
+    .block-line:before {
+        left: 100px;
+        top: 79px;
+        width: 630px;
+    }
+    .achieving .item {
+        margin-bottom: 8px;
+    }
+    .block-map .title{
+        line-height: 50px;
+        padding: 0 20px;
+        margin-bottom: 20px;
+    }
 }
 
 @media (max-width:640px) {
@@ -142,7 +173,7 @@
         float: none;
     }
     header .title {
-        margin-top: 90px;
+        margin-top: 110px;
     }
     .call-us .stay-blanket:after,
     .call-person .base-window:after,
@@ -163,6 +194,7 @@
         line-height: 40px;
         margin-bottom: 15px;
     }
+    .block-line:before{ display: none;}
     
     footer .item:last-child,
     footer .item.middle{ border: none;
@@ -181,6 +213,9 @@
     .our-works .item:last-child, 
     .large-block .item {
         width: 100%!important;
+    }
+    .call-us .block-btn {
+         margin-top: 35px; 
     }
 
 }
@@ -218,7 +253,15 @@
         border: 10px solid #ffcc00;
         width: 200px;
     }
- 
+    .steps .base .image{ 
+        margin: 0 auto;
+        display: block;
+        margin-bottom: 32px;
+    }
+    .steps .base .image.item4,
+    .steps .base .image.item8 {
+        margin-right: auto;
+    }
     .call-us,
     .steps{
         background: url("../uploads/slide4.jpg") repeat-y center top;
@@ -234,11 +277,26 @@
         border: 7px solid #ffcc00;
     }
     .call-us .stay-blanket .title{
-        margin: 0 -10px;
+        margin: 0 -20px;
+    }
+    .call-us .ul-form li {
+        padding-bottom: 10px;
     }
     
     button.mfp-close, .btn-close {
         right: 20px;
         top: 6px;
     }
+    header .call-answer {
+        position: relative;
+        padding-right: 40px;
+        padding-left: 30px;
+    }
+    .call-us .block-btn {
+        margin: 0 auto;
+    }
+    .achieving,
+    .call-us{ margin-bottom: 20px;}
+    
+    header .title{ font-size: 35px;}
 }

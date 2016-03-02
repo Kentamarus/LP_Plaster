@@ -33,6 +33,11 @@ var Site = new function () {
             );
         });    
         
+        $("a[data-rel='m_PageScroll2id']").mPageScroll2id({
+            scrollSpeed: 500,
+            offset: 52
+        });
+        
         $(".btn-close").bind("click", function() {
             $($(this).data("target")).modal('hide');
             $(".btn").removeClass("active");
@@ -77,8 +82,8 @@ var Site = new function () {
                             var newForm = thisForm.find(value[i].old).attr("id", value[i].id).attr("name", value[i].id);
                             thisForm.find(value[i].old).html(newForm);
                         }
-                    }          
-                                                            
+                    }    
+                   
                     $.ajax({
                         type: "POST",
                         url: "back-end/main.php",
@@ -109,25 +114,20 @@ var Site = new function () {
         });
         
          $('.call').magnificPopup({
-            type: 'inline',
             fixedContentPos: false,
             fixedBgPos: true,
             overflowY: 'auto',
             closeBtnInside: true,
             preloader: false,
             midClick: true,
-            removalDelay: 300,
-            mainClass: 'my-mfp-slide-bottom',
-            callbacks:{
-                open:function(){                    
-//                    var id = $('#callForm');
-//                    id.find(".call-answer").removeClass("small-window");
-//                    id.find(".block-before").attr("style", "");                                
-            },
-                close:function(){}
-            }
-        });
-        
+            removalDelay: 200,
+            callbacks: {
+                beforeOpen: function() {
+                   this.st.mainClass = this.st.el.attr('data-effect');
+                }
+              },
+              midClick: true // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.            
+        });                
     };
 };
 
@@ -159,7 +159,7 @@ var Browser = new function() {
             data.is.iPod = true;
         } else if (ua.indexOf("iphone") > 0) data.$b.addClass("iPhone");
         if (ua.indexOf('firefox') > 0) {
-            data.$b.addClass("Firefox");
+            data.$b.addClass("firefox");
         }
         if (data.is.mobile) t.orientation();
         if (!!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/)) {
@@ -213,7 +213,7 @@ var Browser = new function() {
     };
     this.viewPort = function() {
         var def = document.querySelector("meta[name=viewport]");
-        var view = "<meta name='viewport' content='width=399'>";
+        var view = '<meta name="viewport" content="width=device-width">';
         if (def != null) {            
             if (this.isIpad()) { 
                 def.remove();
