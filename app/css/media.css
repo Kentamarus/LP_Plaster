@@ -236,4 +236,9 @@
     .call-us .stay-blanket .title{
         margin: 0 -10px;
     }
+    
+    button.mfp-close, .btn-close {
+        right: 20px;
+        top: 6px;
+    }
 }

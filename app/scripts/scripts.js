@@ -1,7 +1,6 @@
 
-$(function(){
-    
-    Browser.Init();
+$(function(){    
+    Browser.init();
     Site.Init();     
 
 });
@@ -132,50 +131,76 @@ var Site = new function () {
     };
 };
 
-var Browser = new function () {
+var Browser = new function() {
     var data = {
         $b: null,
         is: {
             mobile: false,
             Andorid: false,
-            iPod: false
+            iPod: false,
+            iPad: false
         }
     }
-    this.getData = function()
-    {
+    this.getData = function() {
         return data;
     };
-    this.Init = function () {
+    this.init = function() {
         var t = this;
         data.$b = $("body");
         var ua = navigator.userAgent.toLowerCase();
-        if (ua.indexOf("ipad") > 0) { data.$b.addClass("iPad"); data.is.mobile = true; }
-        else if (ua.indexOf("android") > 0) { data.$b.addClass("Android"); data.is.mobile = true; data.is.Andorid = true; }
-        else if (ua.indexOf("ipod") > 0) { data.$b.addClass("iPod"); data.is.mobile = true; data.is.iPod = true; }
-
-        if (ua.indexOf('firefox') > 0) { data.$b.addClass("Firefox"); }
-        if (data.is.mobile) t.Orientation();
-
-        if (!!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/)) { data.$b.addClass("Safari"); }
-        if (ua.indexOf('MSIE 8.') > 0) { data.$b.addClass("ie8"); }
-        if (ua.indexOf('MSIE 9.') > 0) { data.$b.addClass("ie9"); }
-        if (ua.indexOf(' OPR/') > 0) { data.$b.addClass("Opera"); }
-
-        //IE10 -- IE 11
-        if (ua.indexOf('MSIE 10.') > 0) { data.$b.addClass("ie10"); }
-        else if ((ua.indexOf('Trident') > 0) && (navigator.userAgent.indexOf('rv:11.') > 0)) data.$b.addClass("ie11"); //IE11     
+        if (ua.indexOf("ipad") > 0) {
+            data.$b.addClass("iPad");
+            data.is.iPad = true;
+        } else if (ua.indexOf("android") > 0) {
+            data.$b.addClass("Android");            
+            data.is.Andorid = true;
+        } else if (ua.indexOf("ipod") > 0) {
+            data.$b.addClass("iPod");            
+            data.is.iPod = true;
+        } else if (ua.indexOf("iphone") > 0) data.$b.addClass("iPhone");
+        if (ua.indexOf('firefox') > 0) {
+            data.$b.addClass("Firefox");
+        }
+        if (data.is.mobile) t.orientation();
+        if (!!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/)) {
+            data.$b.addClass("Safari");
+        }
+        if (ua.indexOf('MSIE 8.') > 0) {
+            data.$b.addClass("ie8");
+        }
+        if (ua.indexOf('MSIE 9.') > 0) {
+            data.$b.addClass("ie9");
+        }
+        if (ua.indexOf(' OPR/') > 0) {
+            data.$b.addClass("Opera");
+        }
+        if (ua.indexOf('MSIE 10.') > 0) {
+            data.$b.addClass("ie10");
+        } else if ((ua.indexOf('Trident') > 0) && (navigator.userAgent.indexOf('rv:11.') > 0)) data.$b.addClass("ie11");
+        
+        
+        if (this.isIPhone() || this.isAndroid())
+            {
+                data.$b.addClass("mobile");
+            }                        
+        
+        this.viewPort();
     };
-    this.isIpad = function () {
+    this.isIpad = function() {
+        var ua = navigator.userAgent.toLowerCase();
+        data.$b = $("body");
+        if (ua.indexOf("ipad") > 0) data.$b.addClass("iPad");
         return (data.$b.hasClass("iPad"));
     };
-    this.isIPhone = function () {
+    this.isIPhone = function() {
+        var ua = navigator.userAgent.toLowerCase();
+        if (ua.indexOf("iphone") > 0) data.$b.addClass("iPhone");
         return (data.$b.hasClass("iPhone"));
     };
-    this.isAndroid = function () {
+    this.isAndroid = function() {
         return (data.$b.hasClass("Android"));
     };
-
-    this.Orientation = function () {
+    this.orientation = function() {
         var or = ["orX", "orY"];
         var c = [data.$b.innerHeight(), data.$b.innerWidth()]
         if (c[0] > c[1]) {
@@ -185,19 +210,22 @@ var Browser = new function () {
             data.$b.removeClass(or[1]);
             data.$b.addClass(or[0]);
         }
-
     };
-    this.ViewPort = function (def) {
-        var v = document.querySelector("meta[name=viewport]");
-        if (def == null) {
-            if (data.is.Andorid) {
-                v.setAttribute('content', 'width=1024, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
-            }
-            else
-                if (data.is.iPod) {
-                    v.setAttribute('content', 'width=900, user-scalable=1');
-                }
-        }
-        else v.setAttribute('content', def);
+    this.viewPort = function() {
+        var def = document.querySelector("meta[name=viewport]");
+        var view = "<meta name='viewport' content='width=399'>";
+        if (def != null) {            
+            if (this.isIpad()) { 
+                def.remove();
+                view = '<meta name="viewport" content="maximum-scale=1.0, initial-scale=1.0, user-scalable=0">';
+            } 
+//            else 
+//                if (this.isIPhone())
+//                    {
+//                        def.remove();
+//                        view = '<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">';
+//                    }
+        };     
+        jQuery('head').append(view);
     }
 }
