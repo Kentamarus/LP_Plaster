@@ -27,7 +27,7 @@ class message{
         
         if (empty($this->description)!=1)
         {
-            $message = "$message \n Заказ окна $this->description";
+            $message = "$message \n Заказ: $this->description";
         }
             
         return mail($this->to, $this->from, $message, $this->theme);        

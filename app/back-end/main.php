@@ -11,7 +11,7 @@ try {
         $email->from = "Новая заявка с сайта 'ШТУКАТУРКА'";
         $email->name = trim($_POST["fullName"]);
         $email->phone = trim($_POST["phone"]);
-        $email->description = trim($_POST['view']);
+        $email->description = trim($_POST['subject']);
         $email->theme = "Content-type: text/plain; charset=\"utf-8\"\n From: $email->from";
     
         if ($email->send()>0)

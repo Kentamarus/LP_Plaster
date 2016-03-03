@@ -21,7 +21,7 @@ var Site = new function () {
         }); 
         
         $('.block-map').click(function() {
-            $(this).find('iframe').css("pointer-events", "auto");
+            $(this).find('#map').css("pointer-events", "auto");
         });
         
         //smooth scroll to top
@@ -83,7 +83,7 @@ var Site = new function () {
                             thisForm.find(value[i].old).html(newForm);
                         }
                     }    
-                   
+                                       
                     $.ajax({
                         type: "POST",
                         url: "back-end/main.php",
@@ -127,7 +127,60 @@ var Site = new function () {
                 }
               },
               midClick: true // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.            
-        });                
+        });          
+        
+        $('.btn-order').magnificPopup({
+            fixedContentPos: false,
+            fixedBgPos: true,
+            overflowY: 'auto',
+            closeBtnInside: true,
+            preloader: false,
+            midClick: true,
+            removalDelay: 200,
+            callbacks: {
+                beforeOpen: function() {
+                    this.st.mainClass = this.st.el.attr('data-effect');
+                    var text = $(this.st.el).closest(".base").find(".description");
+                    var el = $("#Order");
+                    el.find(".text").html(text.text());
+                    el.find(".subject").val(text.text());
+                }
+              },
+              midClick: true
+        });           
+        
+        var show_count = 4;
+        if ($("body").width() > 1024) { show_count = 4; } 
+        else if ($("body").width() > 768)  { show_count = 3;}
+        else if ($("body").width() > 639)  { show_count = 2;}
+        else show_count = 1;
+        
+        $('.multiple-items').slick({
+            infinite: true,
+            dots: false,
+            slidesToShow: show_count,
+            slidesToScroll: show_count,
+        });
+        
+        // Image popups
+        $('.slider .image').magnificPopup({
+          delegate: 'a',
+          type: 'image',
+          removalDelay: 500,
+          gallery: {
+              enabled: true
+          },
+          callbacks: {
+            beforeOpen: function() {
+              // just a hack that adds mfp-anim class to markup 
+               this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
+               this.st.mainClass = this.st.el.attr('data-effect');
+            }
+          },
+          closeOnContentClick: true,
+          midClick: true // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
+        });
+        
     };
 };
 
