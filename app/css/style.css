@@ -11,6 +11,10 @@ body{
 }
 body {
     background:#f5f5f5;
+/*
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+*/
 }
 
 a:link,
@@ -28,6 +32,7 @@ a:visited{
 .clear-margin{
     margin: 0!important;
 }
+
 .ul-left li{ float: left; padding: 0; margin: 0;}
 .a-none{ text-decoration: none!important;}
 .uppercase{ text-transform: uppercase;}
@@ -236,7 +241,7 @@ header .call-answer:after{
 .stay-blanket  .ul-form{ margin-top: 20px;}
 
 .text-empty{
-    border: none;
+    border: 1px solid white;
     background: white;
     line-height: 45px;
     height: 45px;
@@ -259,7 +264,7 @@ header .call-answer:after{
     font-family:Exo-Medium;
     border-radius: 0!important;
     color: #2b2b2b!important;
-    background: #ffcc00!important;
+    background: #ffcc00;
     -moz-transition: all 0.2s ease;
     -o-transition: all 0.2s ease;
     -webkit-transition: all 0.2s ease;
@@ -271,20 +276,29 @@ header .call-answer:after{
     box-shadow: 0 3px 0 #d38c02;
     text-align: center;
 }
-.btn.btn-primary:focus{
-    background-color: transparent;
+
+.btn.btn-primary:focus,
+.btn.btn-primary:active, 
+.btn.btn-primary:hover {
+    background-size: 100%;
+    background-image: -webkit-gradient(linear, 0% 0%, 100% 100%, color-stop(0%, #ffcc00),color-stop(100%, #e59a0a));
+    background-image: -moz-linear-gradient(top, #ffcc00,#e59a0a);
+    background-image: -webkit-linear-gradient(top, #ffcc00,#e59a0a);
+    background-image: linear-gradient(to bottom right, #ffcc00,#e59a0a);
+    border-color: transparent;
+    box-shadow: 0 3px 0 #d38c02;
 }
 
 .text-empty::-webkit-input-placeholder {
     color: #a3a2a2;
 }
-.text-empty.error::-webkit-input-placeholder {
-    color: #f24e22;
+.text-empty.error{
+    border:1px solid #f24e22;
 }
 
-.btn.btn-primary:hover{ 
-    box-shadow: none;
-    box-shadow: 0 3px 0 #d38c02;
+.text-empty.error::-webkit-input-placeholder,
+.text-empty.error::-moz-placeholder{
+    color: #f24e22!important;
 }
 
 .btn.btn-primary:active, 
@@ -980,6 +994,7 @@ button.mfp-close:hover,
 /*gallery*/
 .mfp-title{ 
     background: url('../images/space-photo.png') repeat;
+    display: none;
     text-align: center;
     border-radius: 5px;
     padding: 0 5px;
@@ -1089,3 +1104,54 @@ button.mfp-close:hover,
     .gm-style-iw a {
         color: #4272db;
     }
+
+/*.firefox*/
+.firefox .li-tel:after,
+.firefox .navbar-nav > li > a{
+    font-family: 'Exo 2';
+    font-weight: 300;
+}
+
+.firefox .text-empty,
+.firefox .title span,
+.firefox .list-get .base,
+.firefox .slide1 .title span,
+.firefox footer p,
+.firefox .btn.btn-primary,
+.firefox .achieving .item,
+.firefox .will-call i,
+.firefox .large-block .base p,
+.firefox .stay-blanket .title,
+.firefox .will-order p span,
+.firefox .will-order p{
+    font-family: 'Exo 2';
+    font-weight: 500;
+}
+
+.firefox .title-small,
+.firefox .navbar-brand b,
+.firefox .will-order p span{
+    font-family: 'Exo 2';
+    font-weight: 900;
+}
+.firefox .large-block .base span,
+.firefox .dark,
+.firefox .will-call a{
+    font-family: 'Exo 2';
+    font-weight: bold;
+}
+/*.firefox============*/
+
+
+
+.li-tel:after{
+    position: absolute;
+    content: '';
+    display: block;
+    left: 0;
+    top: 0;
+    font-size: 16px;
+    color: #a3a2a2;
+    width: 100%;
+    font-family: Exo-Regular;
+}

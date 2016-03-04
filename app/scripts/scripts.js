@@ -24,6 +24,8 @@ var Site = new function () {
             $(this).find('#map').css("pointer-events", "auto");
         });
         
+        $('input[type=tel]').mask("+3(75) 999-9999");
+        
         //smooth scroll to top
         $(".cd-top").on('click', function(event){
             event.preventDefault();
