@@ -1106,6 +1106,7 @@ button.mfp-close:hover,
     }
 
 /*.firefox*/
+.firefox .mask,
 .firefox .li-tel:after,
 .firefox .navbar-nav > li > a{
     font-family: 'Exo 2';
@@ -1155,3 +1156,27 @@ button.mfp-close:hover,
     width: 100%;
     font-family: Exo-Regular;
 }
+
+.mask{ 
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 150px;
+    line-height: 45px;
+    height: 45px;
+    font-style: normal;
+    padding-left: 16px;
+    font-size: 16px;
+    color: #a3a2a2;
+    width: 55px;
+    font-family: Exo-Regular;
+    overflow: hidden;
+}
+.mask.active{
+    display: block;    
+}
+input[type=tel]{
+    transition: 0.5s ease;
+}
+input[type=tel].focus{ padding-left: 60px;}

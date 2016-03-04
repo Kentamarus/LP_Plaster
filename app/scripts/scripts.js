@@ -6,8 +6,9 @@ $(function(){
 });
 
 var Site = new function () {
+    this.mask = {};
     this.Init = function(){
-        
+        this.setMask();
         $(".navbar-toggle").bind("click", function(e){
             e.preventDefault();
             var obj = $(this).closest(".container").find("#navbar");
@@ -23,9 +24,7 @@ var Site = new function () {
         $('.block-map').click(function() {
             $(this).find('#map').css("pointer-events", "auto");
         });
-        
-        $('input[type=tel]').mask("+3(75) 999-9999");
-        
+                
         //smooth scroll to top
         $(".cd-top").on('click', function(event){
             event.preventDefault();
@@ -63,6 +62,7 @@ var Site = new function () {
                 errorPlacement: function(error, element) {},
                 submitHandler: function(form) {
                     var thisForm = $(form);
+                    
                     $(this).find("input").val("");
                     var value = [{
                         old: '.people',
@@ -82,14 +82,21 @@ var Site = new function () {
                             thisForm.find(value[i].old).html(newForm);
                         }
                     }    
-                                       
+                    
+                    thisForm.find("input[type='tel']").val("+375 " + thisForm.find("input[type='tel']").val());                    
+                    var str = thisForm.serialize();
+                    thisForm.find("input").val("");                   
+                    
                     $.ajax({
                         type: "POST",
                         url: "back-end/main.php",
-                        data: thisForm.serialize()
+                        data: str
                     }).done(function() {
                         
                         $(this).find("input").val("");                   
+                        $(".mask").removeClass("active");
+                        $("input[type=tel]").removeClass("focus");
+                        
                         if (thisForm.find("[type='submit']").data("successful") != undefined) {
                             thisForm.parent().animate({height: 0}, 500, function() {$(".thanks").show();});
                         } else  $('#callForm').modal({show: 'true'}).find(".call-answer").addClass("small-window");
@@ -178,9 +185,38 @@ var Site = new function () {
           },
           closeOnContentClick: true,
           midClick: true // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
+        });        
+    };
+    this.setMask = function(){
+        var obj = $('input[type=tel]').attr("maxlength",15);        
+        this.mask.$ = obj.parent().find(".mask");        
+        this.mask.text = "+375";
+        
+        this.mask.$.text(this.mask.text);            
+        
+        obj.bind("focus",function(){
+            calc($(this))
+        }).bind("change",function(){
+            calc($(this));
         });
         
-    };
+        function calc(t){
+           var clazz = "focus";
+           var a = "active";            
+           var mask = t.parent().find(".mask");
+            
+           if (t.val().length > 0)
+               {
+                   t.addClass(clazz);
+                   mask.addClass(a);
+               } else 
+                   {
+                       t.removeClass(clazz);
+                       mask.removeClass(a);
+                   }
+        }
+        //obj.mask("+375 999 999 999 999 999")
+    }
 };
 
 var Browser = new function() {
