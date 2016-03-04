@@ -42,11 +42,8 @@ var Site = new function () {
             $($(this).data("target")).modal('hide');
             $(".btn").removeClass("active");
         });
-        
-         //$.mask.definitions['~']='[+-]';    
-         $('input[type=tel]').mask("+7(999) 999-9999");
-               
-          $(".call-back-form").each(function() {
+                       
+        $(".call-back-form").each(function() {
             var it = $(this);
             it.validate({
                 rules: {

@@ -71,11 +71,12 @@ body > .container-fluid.main{
 nav{
     background-color: #315176;
 }
-.navbar-nav{ text-align: center; float: none;}
-.navbar-nav>li{ display: inline-block; float: none; width: 16%;}
+.navbar-nav{ text-align: left; float: none; margin-left: 15px;}
+.navbar-nav>li{ display: inline-block; float: none;}
 .navbar-nav>li>a{
     font-family:Exo-Regular;
-    padding: 0;
+    padding-top: 0;
+    padding-bottom: 0;
     display: inline-block;
     font-size: 16px;
     color: white;
@@ -1072,3 +1073,19 @@ button.mfp-close:hover,
     position: relative;
     z-index: 20;
 }
+
+ #map {
+        height:400px;
+        width:550px;
+    }
+    .gm-style-iw * {
+        display: block;
+        width: 100%;
+    }
+    .gm-style-iw h4, .gm-style-iw p {
+        margin: 0;
+        padding: 0;
+    }
+    .gm-style-iw a {
+        color: #4272db;
+    }
