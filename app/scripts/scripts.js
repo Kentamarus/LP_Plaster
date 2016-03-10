@@ -7,8 +7,35 @@ $(function(){
 
 var Site = new function () {
     this.mask = {};
+     this.toogleNavBar = function(){        
+        var start = ($("body").width() < 1024) ? true : false;                
+        var data = {};
+        
+        $(".navbar-toggle").bind("click", function(e){
+            e.preventDefault();
+            data.obj = $(this).closest(".container").find("#navbar");
+            data.visible = ["52px", "295px"];
+            if (!data.obj.hasClass("in"))
+                {
+                    data.obj.addClass("collapse in").animate({height:data.visible[1]},500);
+                } else closeNavBar(data);
+
+            return false;
+        }); 
+        
+        function closeNavBar(data){
+            data.obj.animate({height:data.visible[0]},500, function(){ $(this).removeClass("in")});
+        }
+        
+        if (start)
+            {
+                $(".nav li a").bind("click", function(){ closeNavBar(data);});
+            }
+    }
     this.Init = function(){
         this.setMask();
+        this.toogleNavBar();
+               
         $(".navbar-toggle").bind("click", function(e){
             e.preventDefault();
             var obj = $(this).closest(".container").find("#navbar");
@@ -63,6 +90,9 @@ var Site = new function () {
                 submitHandler: function(form) {
                     var thisForm = $(form);
                     
+                    thisForm.find("input[type=tel]").removeClass("focus");
+                    thisForm.find(".mask").removeClass("active");
+                    
                     $(this).find("input").val("");
                     var value = [{
                         old: '.people',
@@ -93,9 +123,7 @@ var Site = new function () {
                         data: str
                     }).done(function() {
                         
-                        $(this).find("input").val("");                   
-                        $(".mask").removeClass("active");
-                        $("input[type=tel]").removeClass("focus");
+                        $(this).find("input").val("");                                           
                         
                         if (thisForm.find("[type='submit']").data("successful") != undefined) {
                             thisForm.parent().animate({height: 0}, 500, function() {$(".thanks").show();});
@@ -110,11 +138,13 @@ var Site = new function () {
                     return false;
                 },
                 success: function() {},
-                highlight: function(element, errorClass) {
-                    $(element).addClass('error');
+                highlight: function(t, errorClass) {
+                    var t = $(t);
+                    t.addClass('error'); //.val().length == 0 ? t.parent().find(".mask").removeClass("active") : undefined;  
+                    //t.closest("form").find("li").first().focus();
                 },
                 unhighlight: function(element, errorClass, validClass) {
-                    $(element).removeClass('error');
+                    $(element).removeClass('error');                    
                 }
             })
         });
@@ -195,27 +225,59 @@ var Site = new function () {
         this.mask.$.text(this.mask.text);            
         
         obj.bind("focus",function(){
-            calc($(this))
+            calc($(this));            
         }).bind("change",function(){
             calc($(this));
+        }).bind("keydown",function(e){
+            key($(this),e);
+            calc($(this));
+        }).bind("focusout",function(e){
+            var a = "active";      
+            var t = $(this);
+            
+            (t.hasClass("focus") && t.val().length == 0) ? t.removeClass("focus").parent().find(".mask").removeClass(a) : undefined;            
         });
+        
+        
+        function key(t, e){
+             var value = t.val();     
+             if ( value.length > 2 && value.indexOf(" ") == -1 ){
+                    t.val(value.substring(0, 2)+" "+value.substring(2, value.length));
+                    return;
+                }             
+             // Allow: backspace, delete, tab, escape, enter and .
+            if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+                 // Allow: Ctrl+A
+                (e.keyCode == 65 && e.ctrlKey === true) ||
+                 // Allow: Ctrl+C
+                (e.keyCode == 67 && e.ctrlKey === true) ||
+                 // Allow: Ctrl+X
+                (e.keyCode == 88 && e.ctrlKey === true) ||
+                 // Allow: home, end, left, right
+                (e.keyCode >= 35 && e.keyCode <= 39)){
+                     // let it happen, don't do anything                                         
+                                   
+                     if ((e.keyCode ==8 && value.length !=0) || (e.keyCode == 32))
+                         {                             
+                             t.val(value.substring(0,value.length));
+                         }                  
+                     return;
+            }
+            // Ensure that it is a number and stop the keypress
+            if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                e.preventDefault();
+                
+            }    
+        }
         
         function calc(t){
            var clazz = "focus";
            var a = "active";            
            var mask = t.parent().find(".mask");
             
-           if (t.val().length > 0)
-               {
-                   t.addClass(clazz);
-                   mask.addClass(a);
-               } else 
-                   {
-                       t.removeClass(clazz);
-                       mask.removeClass(a);
-                   }
-        }
-        //obj.mask("+375 999 999 999 999 999")
+            !t.hasClass(clazz) ? t.addClass(clazz) : undefined;
+            t.val().length == 0 ? mask.addClass(a) : undefined;           
+        }        
     }
 };
 

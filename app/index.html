@@ -7,10 +7,10 @@
         
         <meta name="description" content="">        
         <meta name="keywords" content="">                                       
-        
-        <link rel="icon" href="images/favicon.ico">    
-        <link rel="stylesheet" type="text/css" href="css/style.css">  
-        <link rel="stylesheet" type="text/css" href="css/media.css">  
+            
+        <link async rel="stylesheet" type="text/css" href="css/style.css">  
+        <link defer rel="stylesheet" type="text/css" href="css/media.css">  
+        <link async rel="icon" href="images/favicon.ico">
     </head>
 <body>
     
@@ -206,7 +206,7 @@
                 <div class="clearfix base">
                     <div class="image item1">
                         <img src="uploads/hod_rabot1.png" alt="">
-                        <span class="description"><i>Предварительная подготовка поверхности и нанесение штукатурки машинным способом</i></span>
+                        <div class="description"><i>Предварительная подготовка поверхности и нанесение штукатурки машинным способом</i></div>
                     </div>
                     <div class="image item2">
                         <img src="uploads/hod_rabot2.png" alt="">
@@ -459,8 +459,7 @@
             </div>
         </section>
         <div class="section row block-map">
-<!--            <span class="title dark">Координаты некоторых наших объектов</span>-->
-<!--            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d603634.5410695513!2d27.279115713706144!3d53.77262326698562!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sua!4v1456845002343" allowfullscreen></iframe>-->
+            <span class="title dark">Наши координаты</span>
             <div id="map"></div>
         </div>
           
@@ -505,15 +504,15 @@
         </footer>  
 </div>          
         
-    <script src="scripts/jquery-2.0.0.min.js"></script>
-    <script src="scripts/jquery.malihu.PageScroll2id.min.js"></script>
-    <script src="scripts/jquery.magnific-popup.min.js"></script>    
-    <script src="scripts/bootstrap.js"></script>
-    <script src="scripts/gistfile1.js"></script>
-    <script src="scripts/jquery.maskedinput.min.js"></script>
-    <script src="scripts/jquery.validate.min.js"></script>        
-    <script src="scripts/slick.min.js"></script>       
-    <script src="scripts/scripts.js"></script>       
+    <script async src="libraries/jquery-2.0.0.min.js"></script>
+    <script defer src="libraries/jquery.malihu.PageScroll2id.min.js"></script>
+    <script defer src="libraries/jquery.magnific-popup.min.js"></script>    
+    <script defer src="libraries/bootstrap.js"></script>
+    <script defer src="libraries/gistfile1.js"></script>
+    <script defer src="libraries/jquery.maskedinput.min.js"></script>
+    <script defer src="libraries/jquery.validate.min.js"></script>        
+    <script defer src="libraries/slick.min.js"></script>           
+    <script defer src="scripts/scripts.js"></script>       
     
      <script src='https://maps.googleapis.com/maps/api/js?key=&sensor=false&extension=.js'></script> 
         
