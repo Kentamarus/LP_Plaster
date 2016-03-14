@@ -33,8 +33,10 @@ var Site = new function () {
             }
     }
     this.Init = function(){
-        this.setMask();
+        //this.setMask();
         this.toogleNavBar();
+        
+        $("input[type='tel']").mask("+375 99 999 9999? 999999");
                
         $(".navbar-toggle").bind("click", function(e){
             e.preventDefault();

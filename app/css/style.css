@@ -486,9 +486,12 @@ footer .will-call a{
     transition: 1s ease;
     background-color: transparent;
     transform: scale(0);
+    padding: 0 10px;
 }
+/*
 .steps .base .image .description table{ width: 100%; }
-.steps .base .image .description table td{ vertical-align: middle; height: 202px;}
+.steps .base .image .description table td{ vertical-align: middle; height: 202px; padding: 0 10px;}
+*/
 
 .steps .base .image .description i{
     font-style: normal;
